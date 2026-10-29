@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>EVRUC – Coming soon</title>
-  <meta name="description" content="EVRUC – the football management education platform. Beyond education, a lifetime in sport. Coming soon. Stay tuned.">
+  <title>EVRUC – Football &amp; Sports Management Education | Coming Soon</title>
+  <meta name="description" content="EVRUC is the global online platform for football and sports management education, with AI-supported learning. Football Management Course coming soon.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#000000">
+  <meta name="author" content="Loyalty Fans GmbH">
   <link rel="canonical" href="https://evruc.com/">
 
   <link rel="icon" href="favicon.ico" sizes="any">
@@ -15,17 +17,107 @@
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EVRUC">
-  <meta property="og:title" content="EVRUC – Coming soon">
-  <meta property="og:description" content="The football management education platform. Coming soon. Stay tuned.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="EVRUC – Football &amp; Sports Management Education">
+  <meta property="og:description" content="The global platform for football &amp; sports management education. AI tutor, community and certified exams. Coming soon.">
   <meta property="og:url" content="https://evruc.com/">
   <meta property="og:image" content="https://evruc.com/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="EVRUC – Be part of the game">
+  <meta property="og:image:alt" content="EVRUC – Football &amp; Sports Management Education">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="EVRUC – Coming soon">
-  <meta name="twitter:description" content="The football management education platform. Coming soon. Stay tuned.">
+  <meta name="twitter:title" content="EVRUC – Football &amp; Sports Management Education">
+  <meta name="twitter:description" content="The global platform for football &amp; sports management education. AI tutor, community and certified exams. Coming soon.">
   <meta name="twitter:image" content="https://evruc.com/og-image.jpg">
+  <meta name="twitter:image:alt" content="EVRUC – Football &amp; Sports Management Education">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": [
+          "Organization",
+          "EducationalOrganization"
+        ],
+        "@id": "https://evruc.com/#organization",
+        "name": "EVRUC",
+        "url": "https://evruc.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://evruc.com/evruc-logo.png",
+          "width": 1400,
+          "height": 472
+        },
+        "image": "https://evruc.com/og-image.jpg",
+        "email": "info@evruc.com",
+        "description": "EVRUC is a global online education platform for football (soccer) and sports management, offering AI-supported learning with an AI tutor, a community and certified exams.",
+        "parentOrganization": {
+          "@type": "Organization",
+          "@id": "https://evruc.com/#loyaltyfans",
+          "name": "Loyalty Fans GmbH",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "CH"
+          }
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "info@evruc.com",
+          "availableLanguage": "English"
+        },
+        "areaServed": "Worldwide",
+        "knowsAbout": [
+          "Football management",
+          "Sports management",
+          "Sports business",
+          "Football club management"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://evruc.com/#website",
+        "url": "https://evruc.com/",
+        "name": "EVRUC",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://evruc.com/#organization"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://evruc.com/#webpage",
+        "url": "https://evruc.com/",
+        "name": "EVRUC – Football & Sports Management Education | Coming Soon",
+        "description": "EVRUC is the global online platform for football and sports management education, with AI-supported learning. Football Management Course coming soon.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://evruc.com/#website"
+        },
+        "about": {
+          "@id": "https://evruc.com/#organization"
+        },
+        "primaryImageOfPage": "https://evruc.com/og-image.jpg"
+      },
+      {
+        "@type": "Course",
+        "@id": "https://evruc.com/#football-management-course",
+        "name": "Football Management Course",
+        "description": "EVRUC's flagship online course for people who want careers in football clubs, federations and the sports business, with AI-supported learning: an AI tutor, a community and certified exams.",
+        "provider": {
+          "@id": "https://evruc.com/#organization"
+        },
+        "inLanguage": "en",
+        "educationalCredentialAwarded": "Certificate",
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "People pursuing careers in football clubs, federations and the sports business"
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,6 +179,21 @@
       opacity: 0;
       animation: fadeUp 1.3s cubic-bezier(.2,.7,.2,1) 1.5s forwards;
     }
+    .about {
+      margin-top: 1.6rem;
+      max-width: 42rem;
+      font-weight: 300;
+      font-size: clamp(.78rem, 2.8vw, .92rem);
+      letter-spacing: .12em;
+      line-height: 1.7;
+      color: #9a9a9a;
+      opacity: 0;
+      animation: fadeIn 1.2s ease 1.8s forwards;
+    }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
     footer {
       padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom));
       font-size: .75rem;
@@ -105,7 +212,7 @@
     @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @media (prefers-reduced-motion: reduce) {
-      .logo, .divider, h1, .tagline, footer { animation: none; opacity: 1; }
+      .logo, .divider, h1, .tagline, .about, footer { animation: none; opacity: 1; }
     }
   </style>
 </head>
@@ -113,11 +220,12 @@
   <main>
     <picture>
       <source srcset="evruc-logo.webp" type="image/webp">
-      <img class="logo" src="evruc-logo.png" width="1400" height="472" alt="EVRUC – Be part of the game">
+      <img class="logo" src="evruc-logo.png" width="1400" height="472" alt="EVRUC – Football &amp; Sports Management Education">
     </picture>
     <div class="divider" aria-hidden="true"></div>
-    <h1>Coming soon</h1>
+    <h1><span class="sr-only">EVRUC – Football &amp; Sports Management Education. </span>Coming soon</h1>
     <p class="tagline">Stay tuned.</p>
+    <p class="about">The global platform for football &amp; sports management education.</p>
   </main>
   <footer>
     <span>© 2026 EVRUC<span class="sep">·</span>Loyalty Fans GmbH</span><span class="contact"><span class="sep">·</span><a href="mailto:info@evruc.com">info@evruc.com</a></span>

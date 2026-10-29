@@ -1,0 +1,20 @@
+# EVRUC
+
+> EVRUC is a global online education platform for football (soccer) and sports management, by Loyalty Fans GmbH, a Swiss company. The platform is in English and is coming soon.
+
+## About
+
+- Flagship course: the Football Management Course.
+- AI-supported learning: an AI tutor, a community, and certified exams.
+- For people who want careers in football clubs, federations, and the sports business.
+- Global audience; courses are in English.
+- Operated by Loyalty Fans GmbH (Switzerland).
+
+## Status
+
+The platform is launching soon. The website https://evruc.com/ currently shows a coming-soon page.
+
+## Contact
+
+- Website: https://evruc.com/
+- Email: info@evruc.com
