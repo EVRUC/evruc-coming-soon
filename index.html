@@ -3,6 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- Google Consent Mode v2: everything denied by default, before gtag.js loads -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+    try {
+      if (localStorage.getItem('evruc_consent') === 'granted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (e) {}
+  </script>
+  <!-- Google tag (gtag.js) - GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C6JMYPYMK"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-2C6JMYPYMK', {
+      'allow_google_signals': false,
+      'allow_ad_personalization_signals': false
+    });
+  </script>
   <title>EVRUC – Football &amp; Sports Management Education | Coming Soon</title>
   <meta name="description" content="EVRUC is the global online platform for football and sports management education, with AI-supported learning. Football Management Course coming soon.">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -209,6 +237,28 @@
       footer .contact { display: block; margin-top: .5rem; }
       footer .contact .sep { display: none; }
     }
+    .cookie-banner {
+      position: fixed; left: 50%; bottom: calc(1rem + env(safe-area-inset-bottom));
+      transform: translateX(-50%);
+      width: min(calc(100% - 2rem), 34rem);
+      background: #111; border: 1px solid #2a2a2a; border-radius: 6px;
+      padding: .9rem 1rem; z-index: 1000;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .75rem 1rem;
+      font-size: .78rem; line-height: 1.5; letter-spacing: .03em; color: #b5b5b5; text-align: left;
+      box-shadow: 0 4px 24px rgba(0,0,0,.6);
+    }
+    .cookie-banner[hidden] { display: none; }
+    .cookie-banner p { flex: 1 1 16rem; }
+    .cookie-actions { display: flex; gap: .6rem; }
+    .cookie-banner button {
+      font: inherit; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+      min-width: 6.5rem; padding: .5rem .9rem; cursor: pointer;
+      background: transparent; color: #f2f2f2; border: 1px solid #c9a24a; border-radius: 4px;
+      transition: background .2s, color .2s;
+    }
+    .cookie-banner button:hover, .cookie-banner button:focus-visible { background: #c9a24a; color: #000; outline: none; }
+    .cookie-link { background: none; border: 0; border-bottom: 1px solid #444; color: #b5b5b5; font: inherit; letter-spacing: inherit; cursor: pointer; padding: 0; transition: color .2s, border-color .2s; }
+    .cookie-link:hover, .cookie-link:focus-visible { color: #c9a24a; border-color: #c9a24a; outline: none; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @media (prefers-reduced-motion: reduce) {
@@ -228,7 +278,44 @@
     <p class="about">The global platform for football &amp; sports management education.</p>
   </main>
   <footer>
-    <span>© 2026 EVRUC<span class="sep">·</span>Loyalty Fans GmbH</span><span class="contact"><span class="sep">·</span><a href="mailto:info@evruc.com">info@evruc.com</a></span>
+    <span>© 2026 EVRUC<span class="sep">·</span>Loyalty Fans GmbH</span><span class="contact"><span class="sep">·</span><a href="mailto:info@evruc.com">info@evruc.com</a></span><span class="contact"><span class="sep">·</span><button type="button" class="cookie-link" id="cookie-settings">Cookie settings</button></span>
   </footer>
+
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+    <p>We use analytics cookies to understand how visitors use our site. You can accept or decline.</p>
+    <div class="cookie-actions">
+      <button type="button" id="cookie-accept">Accept</button>
+      <button type="button" id="cookie-decline">Decline</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var KEY = 'evruc_consent';
+      var banner = document.getElementById('cookie-banner');
+      function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+      function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+      function clearGaCookies() {
+        document.cookie.split(';').forEach(function (c) {
+          var name = c.split('=')[0].trim();
+          if (name === '_ga' || name.indexOf('_ga_') === 0) {
+            ['', '; domain=.evruc.com', '; domain=evruc.com'].forEach(function (d) {
+              document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + d;
+            });
+          }
+        });
+      }
+      function choose(v) {
+        save(v);
+        gtag('consent', 'update', { 'analytics_storage': v === 'granted' ? 'granted' : 'denied' });
+        if (v !== 'granted') clearGaCookies();
+        banner.hidden = true;
+      }
+      document.getElementById('cookie-accept').addEventListener('click', function () { choose('granted'); });
+      document.getElementById('cookie-decline').addEventListener('click', function () { choose('denied'); });
+      document.getElementById('cookie-settings').addEventListener('click', function () { banner.hidden = false; });
+      var v = stored();
+      if (v !== 'granted' && v !== 'denied') banner.hidden = false;
+    })();
+  </script>
 </body>
 </html>
